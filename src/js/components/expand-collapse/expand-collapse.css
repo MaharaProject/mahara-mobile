@@ -1,3 +1,5 @@
+@import "../../../css/pull-to-refresh.css";
+
 .expandCollapse {
   position:relative;
   display:flex;
@@ -9,6 +11,11 @@
   border-radius: 5px;
   box-shadow: 0px 2px 3px 0px #555;
   background: #c3db8b;
+
+  .loading {
+  	display: block;
+  	width: 100px;
+  }
 
   > button {
     display: inline-block;

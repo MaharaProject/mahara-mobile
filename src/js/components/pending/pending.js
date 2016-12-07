@@ -61,7 +61,7 @@ class Pending extends MaharaBaseComponent {
             <h1>{this.gettext('pending_heading') }</h1>
             {
                 this.props.pendingUploads.map(function (item, i) {
-                    return <ExpandCollapse key={item.guid} title={item.title || item.body}>
+                    return <ExpandCollapse key={item.guid} title={item.title || item.body} loading={item.loading}>
                         <PendingItem {...item} lang={that.props.lang} lastItem={i === that.props.pendingUploads.length - 1}/>
                     </ExpandCollapse>;
                 })

@@ -252,6 +252,7 @@ function MaharaState(state, action) {
             break;
         case PENDING.UPLOAD_NEXT:
             if (state.pendingUploads && state.pendingUploads.length) {
+                state.pendingUploads[0].loading = true;
                 state.uploadGuid = state.pendingUploads[0].guid;
             } else { // else there's nothing to process
                 state.uploadGuid = undefined;
@@ -264,6 +265,13 @@ function MaharaState(state, action) {
                     state.startedUploadAt = undefined;
                 }
             }
+            break;
+        case PENDING.UPLOAD_ITEM_FINISHED:
+            state.pendingUploads.forEach(function(upload) {
+              if (upload.guid === action.guid) {
+                upload.loading = false;
+              }
+            });
             break;
         case PENDING.DELETE_ALL:
             state.pendingUploads = [];

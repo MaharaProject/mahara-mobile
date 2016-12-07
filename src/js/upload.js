@@ -72,11 +72,14 @@ function uploadFile(fileEntry){
 function afterUploadComplete(response){
   var item = response.journalEntry || response.fileEntry;
   console.log("Uploaded item", item);
+  StateStore.dispatch({type:PENDING.UPLOAD_ITEM_FINISHED, guid:item.guid});
   StateStore.dispatch({type:PENDING.DELETE, guid:item.guid});
   StateStore.dispatch({type:PENDING.UPLOAD_NEXT});
 }
 
 function afterUploadError(errormessage){
+  var item = response.journalEntry || response.fileEntry;
+  StateStore.dispatch({type:PENDING.UPLOAD_ITEM_FINISHED, guid:item.guid});
   StateStore.dispatch({type:PENDING.STOP_UPLOADS});
 //   if(response && response.error){
     // if(response.hasOwnProperty("isLoggedIn")){

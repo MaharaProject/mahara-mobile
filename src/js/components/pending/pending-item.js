@@ -16,8 +16,8 @@ class PendingItem extends MaharaBaseComponent {
         }
         return <div key={this.props.guid} className={"item" + (this.props.lastItem ? " lastItem" : "") } onClick={this.edit}>
             <h2>
-                <button onClick={this.delete} className="delete small">&times; {this.gettext('edit')}</button>
-                <button onClick={this.edit} className="edit small">&larr; {this.gettext('delete')}</button>
+                <button onClick={this.delete} className="delete small">&times; {this.gettext('delete')}</button>
+                <button onClick={this.edit} className="edit small">&larr; {this.gettext('edit')}</button>
                 {this.props.title || this.props.filename}
             </h2>
             {img}
