@@ -111,34 +111,35 @@ export function refreshUserIcon(newicon) {
         + "module/mobileapi/download.php?wsfunction=module_mobileapi_get_user_profileicon&wstoken="
         + this.getWSToken();
 
-    fsLib.createFile(
-        filename,
-        function win(fileEntry) {
-            console.log('Opened local file ' + filename);
-            new FileTransfer().download(
-                encodeURI(url),
-                fileEntry.toURL(),
-                function gotDownload(fileEntry) {
-                    StateStore.dispatch(
-                        {
-                            type: STORAGE.SET_USER_PROFILE_ICON,
-                            icon: `${fileEntry.toURL()}?d=${Date.now()}`
-                        }
-                    );
-                    return fileEntry;
-                },
-                function failedDownload(error) {
-                    console.log("Failed downloading " + url);
-                    console.log(JSON.stringify(error, null, 4));
-                    return clearUserIcon();
-                }
-            );
+      httpLib.raw('GET', null, url, null, null,
+        function() {
+          if (this.status == 200) {
+
+            const profileIcon = new Blob([this.response], { type: newicon.mimetype });
+
+            fsLib.createFile(filename, function (fileEntry) {
+              fsLib.writeInFile(fileEntry, profileIcon,
+                () => fileEntry.file(
+                  file => fsLib.readFileAsArrayBuffer(file,
+                    function (fileEntry) {
+                      StateStore.dispatch({
+                        type: STORAGE.SET_USER_PROFILE_ICON,
+                        icon: `${fileEntry.toURL()}?d=${Date.now()}`
+                      });
+                    }.bind(this, fileEntry)
+                  )
+                )
+              );
+            });
+          }
         },
-        function fail(e) {
-            console.log('Failed getting FileEntry to save user icon in. Details follow.');
-            console.log(e);
-        }
-    );
+        error => {
+          console.log("failed downloading " + url);
+          console.log(JSON.stringify(error, null, 4));
+          return clearUserIcon();
+        },
+        { responseType: 'blob' } // because we expect an image
+      );
 }
 
 function clearUserIcon() {

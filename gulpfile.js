@@ -43,7 +43,7 @@ gulp.task('js', function () {
     .transform(
         babelify,
         {
-            presets: ["env", "react"],
+            presets: ["@babel/preset-env", "@babel/preset-react"],
             plugins: ["transform-export-extensions", "transform-class-properties"]
         }
     )
@@ -56,7 +56,7 @@ gulp.task('js', function () {
     .pipe(gulp.dest(paths.dest));
 });
 
-gulp.task('css', function () {
+gulp.task('css', function (done) {
     var processors = [
         require('postcss-import'),
         require('postcss-mixins'),
@@ -64,38 +64,39 @@ gulp.task('css', function () {
         require('postcss-nested'),
         require('autoprefixer')({ browsers: ['last 2 versions', '> 2%'] })
     ];
-    gulp.src(paths.css)
+    return gulp.src(paths.css)
         .pipe(postcss(processors))
         .pipe(gulp.dest(paths.dest));
+
 });
 
 gulp.task('lib', function () {
-    gulp.src(paths.lib)
+    return gulp.src(paths.lib)
         .pipe(gulp.dest(paths.dest + "/lib"));
 });
 
 gulp.task('image', function () {
-    gulp.src(paths.image)
+    return gulp.src(paths.image)
         .pipe(gulp.dest(paths.dest + "/image"));
 });
 
 gulp.task('font', function () {
-    gulp.src(paths.font)
+    return gulp.src(paths.font)
         .pipe(gulp.dest(paths.dest + '/fonts'));
 });
 
 gulp.task('html', function () {
-    gulp.src(paths.html)
+    return gulp.src(paths.html)
         //.pipe(replace(/<!--\#(.*?)\#-->/, ''))
         .pipe(gulp.dest(paths.dest));
 });
 
 gulp.task('ready', function () {
-    gulp.src(paths.ready)
+    return gulp.src(paths.ready)
         .pipe(gulp.dest(paths.dest));
 });
 
-gulp.task('locale', function () {
+gulp.task('locale', function (done) {
     var allStrings = {};
     glob("./src/i18n/*/strings.txt", function (er, files) {
         var filesRemaining = files.length,
@@ -119,18 +120,28 @@ gulp.task('locale', function () {
                 if (filesRemaining > 0) return;
                 fs.mkdir(paths.dest + '/i18n', function (e) {
                     if (e && e.code !== 'EEXIST') console.log(e);
-                    fs.writeFile(paths.dest + '/i18n/strings.json', JSON.stringify(allStrings, null, 2), 'utf-8');
+                    fs.writeFile(paths.dest + '/i18n/strings.json', JSON.stringify(allStrings, null, 2), 'utf-8', () => null);
                 });
             };
 
         for (var i = 0; i < files.length; i++) {
             readLang(files[i]);
         }
+        done();
     });
 });
 
-gulp.task('default', ['js', 'css', 'lib', 'image', 'font', 'html', 'locale', 'ready']);
+gulp.task('default', gulp.series(
+  'js',
+  'css',
+  'lib',
+  'image',
+  'font',
+  'html',
+  'locale',
+  'ready'
+));
 
-gulp.task('watch', function () {
-    gulp.watch(['*', '**'], ['default']);
+gulp.task('watch', function() {
+    return gulp.watch(['src/*', 'src/**'], gulp.series('default'));
 });

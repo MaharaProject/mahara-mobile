@@ -89,5 +89,6 @@ default_journal=Default journal
 default_language=Default language
 default_folder=Default folder
 default_settings=Default settings
-record_audio=Record Audio
+record_audio=Record audio
+record_audio_unavailable=Audio recorder not available
 back_to_profile=Back to Profile

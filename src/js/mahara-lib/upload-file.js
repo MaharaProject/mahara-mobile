@@ -1,7 +1,6 @@
 import httpLib               from './http-lib.js';
 import {dataURItoBlob,
     trimString}          from './util.js';
-import http                  from './http-lib.js';
 
 const wsfunction = 'module_mobileapi_upload_file';
 

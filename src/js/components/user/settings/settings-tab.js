@@ -1,11 +1,10 @@
-import React, { PropTypes } from 'react';
-import MaharaBaseComponent  from '../../base.js';
-import {PAGE_URL}           from '../../../constants.js';
-import {maharaServer}       from '../../../state.js';
-import MaharaSelector       from '../mahara-selector/selector.js';
-import StateStore           from '../../../state.js';
-import Router               from '../../../router.js';
-import {STORAGE}            from '../../../constants.js';
+import React from 'react';
+import PropTypes from 'prop-types';
+import MaharaBaseComponent from '../../base.js';
+import { PAGE_URL, STORAGE } from '../../../constants.js';
+import StateStore, { maharaServer } from '../../../state.js';
+import MaharaSelector from '../mahara-selector/selector.js';
+import Router from '../../../router.js';
 
 const defaultIcon = "image/profile-default.png";
 

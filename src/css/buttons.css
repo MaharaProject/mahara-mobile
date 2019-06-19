@@ -16,9 +16,9 @@ button.small {
   box-sizing: border-box;
   cursor: pointer;
   background: #33510c;
-	color: #a7ce74;
+  color: #a7ce74;
   border: 0;
-	padding: 13px 20px;
+  padding: 13px 20px;
   font-weight: bold;
 
   &:active {

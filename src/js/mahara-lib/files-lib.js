@@ -25,6 +25,9 @@
 /**
  * @namespace Holds all the MoodleMobile file system functionality.
  */
+
+ /* global LocalFileSystem */
+ // LocalFileSystem always called after device is ready
 const fsLib = {
 
     basePath: '',

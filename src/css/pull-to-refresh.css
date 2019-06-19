@@ -1,65 +1,67 @@
 @-webkit-keyframes ptr-loading {
-	0% {
-		-webkit-transform: translateY(0) scale(0.3);
-		transform: translateY(0) scale(0.3);
-		opacity: 0;
-	}
+  0% {
+    -webkit-transform: translateY(0) scale(0.3);
+    transform: translateY(0) scale(0.3);
+    opacity: 0;
+  }
 
-	100% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-		background-color: #fff;
-		opacity: 1;
-	}
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    background-color: #fff;
+    opacity: 1;
+  }
 }
 
 @keyframes ptr-loading {
-	0% {
-		-webkit-transform: translateY(0) scale(0.3);
-		transform: translateY(0) scale(0.3);
-		opacity: 0;
-	}
+  0% {
+    -webkit-transform: translateY(0) scale(0.3);
+    transform: translateY(0) scale(0.3);
+    opacity: 0;
+  }
 
-	100% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-		background-color: #fff;
-		opacity: 1;
-	}
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    background-color: #fff;
+    opacity: 1;
+  }
 }
 
 .loading {
-	display: inline-block;
-	text-align: center;
-	display: none;
-	span {
-		display: inline-block;
-		vertical-align: middle;
-		width: 10px;
-		height: 10px;
-		margin-right: 3px;
-		-webkit-transform: scale(0.3);
-		transform: scale(0.3);
-		border-radius: 50%;
-		-webkit-animation: ptr-loading 0.4s infinite alternate;
-		animation: ptr-loading 0.4s infinite alternate;
-	}
-	.loading-ptr-1 {
-		-webkit-animation-delay: 0;
-		animation-delay: 0;
-	}
+  display: inline-block;
+  text-align: center;
+  display: none;
 
-	.loading-ptr-2 {
-		-webkit-animation-delay: 0.2s;
-		animation-delay: 0.2s;
-	}
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    margin-right: 3px;
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3);
+    border-radius: 50%;
+    -webkit-animation: ptr-loading 0.4s infinite alternate;
+    animation: ptr-loading 0.4s infinite alternate;
+  }
 
-	.loading-ptr-3 {
-		-webkit-animation-delay: 0.4s;
-		animation-delay: 0.4s;
-	}
+  .loading-ptr-1 {
+    -webkit-animation-delay: 0;
+    animation-delay: 0;
+  }
+
+  .loading-ptr-2 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+  }
+
+  .loading-ptr-3 {
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+  }
 }
 
 .ptr-loading .loading {
-	display: block;
+  display: block;
 }

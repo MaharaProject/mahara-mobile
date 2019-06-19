@@ -25,6 +25,7 @@
     ],
     "rules": {
         "react/display-name": 0,
+        "react/no-string-refs": 0,
         "linebreak-style": [
             "error",
             "unix"
@@ -40,9 +41,6 @@
     "globals": {
       // From alertify plugin
       "alertify": false,
-      // From cordova-plugin-file-transfer
-      "FileUploadOptions": false,
-      "FileTransfer": false,
       // From cordova-plugin-device
       "device": false,
       // From cordova core

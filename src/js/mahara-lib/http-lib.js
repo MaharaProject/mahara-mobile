@@ -5,7 +5,7 @@ import jQuery from 'jquery';
 const httpLib = {
     /**
      * Raw asynchronous HTTP request. (Wrapper around XMLHttpRequest)
-     * 
+     *
      * @param {string} method HTTP method to use
      * @param {object} headers List of HTTP headers to pass to XMLHttpRequest.setRequestHeader()
      * @param {string} path
@@ -15,7 +15,7 @@ const httpLib = {
      * @param function(Event) errorCallback
      * @returns
      */
-    raw: function (method, headers, path, getParams, postData, successCallback, errorCallback) {
+    raw: function (method, headers, path, getParams, postData, successCallback, errorCallback, options) {
         var request = new XMLHttpRequest(),
             key;
 
@@ -39,6 +39,11 @@ const httpLib = {
             }
         }
         request.onload = successCallback;
+        if (options && Object.keys(options).length) {
+          for (let o in options) {
+            request[o] = options[o];
+          }
+        }
         request.onerror = errorCallback;
         request.send(postData);
         return request;
@@ -46,7 +51,7 @@ const httpLib = {
 
     /**
      * Asynchronous GET request
-     * 
+     *
      * @param {string} path
      * @param {object} getParams
      * @param function(Event) successCallback
@@ -60,7 +65,7 @@ const httpLib = {
 
     /**
      * Asynchronous GET request that expects to receive a JSON-encoded response
-     * 
+     *
      * @param {string} path
      * @param {object} getParams
      * @param function(Object jsonData) successCallback
@@ -74,7 +79,7 @@ const httpLib = {
 
     /**
      * Success callback function to convert JSON raw response to JSON object
-     * 
+     *
      * @param {function(Object jsonData)} successCallback
      * @param {function(Event, Exception, Object jsonData)} errorCallback
      * @returns
@@ -97,7 +102,7 @@ const httpLib = {
             } catch (e) {
                 return errorCallback.call(httpLib, response, e, rawText);
             }
-            // When mahara knows JSON is expected in the response, 
+            // When mahara knows JSON is expected in the response,
             // and there's an error, it prints an error code and
             // message.
             //
@@ -111,7 +116,7 @@ const httpLib = {
 
     /**
      * Send a POST request with application/x-www-form-urlencoded, like a form submission
-     * 
+     *
      * @param {string} path
      * @param {Object} getParams
      * @param {Object} postParams
@@ -137,7 +142,7 @@ const httpLib = {
 
     /**
      * Send a POST request that's not like a form submission(?)
-     * 
+     *
      * @param {string} path
      * @param {Object} getParams
      * @param {Object} postParams
@@ -149,30 +154,29 @@ const httpLib = {
      * @returns
      */
     postData: function (path, getParams, postParams, successCallback, errorCallback, headers, fileEntry, filesParamName) {
-        var formData = new FormData(),
-            key,
-            value;
+        var formData = new FormData();
 
         if (fileEntry) {
-            
-            new FileTransfer().upload(
-                fileEntry.fileUrl,
-                encodeURI(path),
-                successCallback,
-                errorCallback,
-                {
-                    fileKey: filesParamName,
-                    fileName: fileEntry.fileName,
-                    mimetype: fileEntry.mimeType,
-                    //chunkedMode = true; // WARNING this is apparently important to send both data and files BUT it may cause bugs on Nginx
-                    httpMethod: "POST",
-                    params: postParams,
-                    headers: headers
+          fsLib.getExternalFile(fileEntry.fileUrl, function(entry) {
+            entry.file(function (file) {
+              const reader = new FileReader();
+              reader.onloadend = function() {
+                // Create a blob based on the FileReader "result", which we asked to be retrieved as an ArrayBuffer
+                var blob = new Blob([new Uint8Array(this.result)], { type: fileEntry.mimeType });
+                postParams[filesParamName] = blob;
+
+                for (let key in postParams) {
+                  formData.append(key, postParams[key]);
                 }
-            );
-        }
-        else {
-            for (key in postParams) {
+
+                return httpLib.raw("POST", headers, path, getParams, formData, successCallback, errorCallback);
+              };
+              // Read the file as an ArrayBuffer
+              reader.readAsArrayBuffer(file);
+            });
+          });
+        } else {
+            for (let key in postParams) {
                 if (!postParams.hasOwnProperty(key)) {
                     continue;
                 }
@@ -184,7 +188,7 @@ const httpLib = {
 
     /**
      * Send a POST request and process the results into JSON
-     * 
+     *
      * @param {any} path
      * @param {any} getParams
      * @param {any} postParams
@@ -199,7 +203,7 @@ const httpLib = {
 
     /**
      * Access a Mahara REST-based webservice using an auth token.
-     * 
+     *
      * @param {string} wsfunction Name of the function to access
      * @param {object} wsparams
      * @param function() successCallback

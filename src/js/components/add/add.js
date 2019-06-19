@@ -1,4 +1,5 @@
-import React, { PropTypes }   from 'react';
+import React   from 'react';
+import PropTypes              from 'prop-types';
 import MaharaBaseComponent    from '../base.js';
 import {PAGE_URL,
     FILE_ENTRY}               from '../../constants.js';
@@ -82,11 +83,11 @@ class Add extends MaharaBaseComponent {
   handleError(error) {
     alertify
         .okBtn(this.gettext("alert_ok_button"))
-        .alert("Error: " + " " + error);
+        .alert(this.gettext('record_audio_unavailable'));
   }
 
   recordAudio() {
-    navigator.device.capture.captureAudio(this.mediaCaptureSuccess, this.handleError, {limit:1});
+    navigator.device.capture.captureAudio(this.mediaCaptureSuccess, this.handleError.bind(this), {limit:1});
   }
 
   mediaCaptureSuccess(files) {

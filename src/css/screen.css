@@ -1,30 +1,3 @@
-/* PostCSS */
-
-@define-mixin reset {
-	padding: 0;
-	margin: 0;
-}
-
-html {
-	transition: background-color 0.5s;
-}
-
-body {
-  user-select: none;
-  @mixin reset;
-  font-family: 'Open Sans', sans-serif;
-	font-size: 16px;
-	color: #FFFFFF;
-	font-weight: normal;
-}
-
-html,
-body,
-#container,
-#container > div {
-	min-height: 100%;
-}
-
 @import "./fonts.css";
 @import "./buttons.css";
 @import "./headings.css";
@@ -44,24 +17,50 @@ body,
 @import "../js/components/expand-collapse/expand-collapse.css";
 @import "../lib/alertify.js/alertify.css";
 
+/* PostCSS */
+
+@define-mixin reset {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  transition: background-color 0.5s;
+}
+
+body {
+  user-select: none;
+  @mixin reset;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #FFFFFF;
+  font-weight: normal;
+}
+
+html,
+body,
+#container,
+#container > div {
+  min-height: 100%;
+}
+
 .alertify {
-	.alert, .dialog {
-		> * {
-			border-radius: 10px;
-		}
+  .alert, .dialog {
+    > * {
+      border-radius: 10px;
+    }
 
-		nav {
-			button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button) {
-			  background: #33510c;
-				color: #a7ce74;
-				border-radius: 0;
+    nav {
+      button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button) {
+        background: #33510c;
+        color: #a7ce74;
+        border-radius: 0;
 
-				&:hover, &:focus {
-					background: #33510c;
-					color: #a7ce74;
-				}
-			}
-		}
-
-	}
+        &:hover, &:focus {
+          background: #33510c;
+          color: #a7ce74;
+        }
+      }
+    }
+  }
 }

@@ -1,12 +1,11 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes  from 'prop-types';
 import MaharaBaseComponent  from '../../base.js';
-import {PAGE_URL}           from '../../../constants.js';
-import Router               from '../../../router.js';
-import {maharaServer}       from '../../../state.js';
-import ReactPullToRefresh   from 'react-pull-to-refresh';
-import MaharaSelector       from '../mahara-selector/selector.js';
-import StateStore           from '../../../state.js';
-import {STORAGE}            from '../../../constants.js';
+import { PAGE_URL, STORAGE } from '../../../constants.js';
+import Router from '../../../router.js';
+import StateStore, { maharaServer } from '../../../state.js';
+import ReactPullToRefresh from 'react-pull-to-refresh';
+import MaharaSelector from '../mahara-selector/selector.js';
 
 const defaultIcon = "image/profile-default.png";
 
@@ -34,7 +33,7 @@ class MainTab extends MaharaBaseComponent {
     }
 
     showSettings() {
-      this.setState({'activeTab': 'settings' });
+      this.setState({ 'activeTab': 'settings' });
     }
 
     logoutButton() {
