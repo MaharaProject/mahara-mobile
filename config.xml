@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.mahara.mobile" ios-CFBundleIdentifier="mahara.mobile" version="1.4.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="org.mahara.mobile.app" ios-CFBundleIdentifier="mahara.mobile" version="1.4.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Mahara Mobile</name>
     <description>
       Mobile app for Mahara, the open source ePortfolio platform.
@@ -12,7 +12,7 @@
 
       Mahara Mobile is an open source project. To contribute or report bugs, see https://github.com/MaharaProject/mahara-mobile
     </description>
-    <author email="support@mahara.org" href="http://mahara.org/">
+    <author email="support@mahara.org" href="https://mahara.org/">
         Catalyst IT
     </author>
     <access origin="*" />
