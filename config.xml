@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.mahara.mobile.app" ios-CFBundleIdentifier="mahara.mobile" version="1.4.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="org.mahara.mobile.app" ios-CFBundleIdentifier="mahara.mobile" version="1.4.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Mahara Mobile</name>
     <description>
       Mobile app for Mahara, the open source ePortfolio platform.
@@ -63,5 +63,15 @@
     <engine name="browser" spec="^6.0.0" />
     <engine name="ios" spec="^5.0.0" />
     <engine name="android" spec="^8.0.0" />
-    <plugin name="cordova-plugin-media-capture" spec="^3.0.2" />
+    <plugin name="cordova-plugin-media-capture" spec="^3.0.3">
+      <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
+        <string>Mahara Mobile needs camera access to take pictures</string>
+      </edit-config>
+      <edit-config target="NSMicrophoneUsageDescription" file="*-Info.plist" mode="merge">
+        <string>Mahara Mobile needs microphone access to record audio</string>
+      </edit-config>
+      <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
+        <string>Mahara Mobile needs access to photo library to upload photos to Mahara</string>
+      </edit-config>
+    </plugin>
 </widget>
