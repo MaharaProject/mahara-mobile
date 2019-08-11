@@ -29,6 +29,7 @@
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="android-minSdkVersion" value="19" />
     <icon density="ldpi" platform="android" src="res/icon/android/mipmap-ldpi/ic_launcher.png" />
     <icon density="mdpi" platform="android" src="res/icon/android/mipmap-mdpi/ic_launcher.png" />
     <icon density="hdpi" platform="android" src="res/icon/android/mipmap-hdpi/ic_launcher.png" />
@@ -65,7 +66,7 @@
     <engine name="android" spec="^8.0.0" />
     <plugin name="cordova-plugin-media-capture" spec="^3.0.3">
       <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
-        <string>Mahara Mobile needs camera access to take pictures</string>
+        <string>Mahara Mobile needs camera access to take photos</string>
       </edit-config>
       <edit-config target="NSMicrophoneUsageDescription" file="*-Info.plist" mode="merge">
         <string>Mahara Mobile needs microphone access to record audio</string>
