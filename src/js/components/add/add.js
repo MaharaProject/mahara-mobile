@@ -87,25 +87,34 @@ class Add extends MaharaBaseComponent {
   }
 
   recordAudio() {
-    navigator.device.capture.captureAudio(this.mediaCaptureSuccess, this.handleError.bind(this), {limit:1});
+    navigator.device.capture.captureAudio(this.mediaCaptureSuccess.bind(this), this.handleError.bind(this), {limit:1});
   }
 
-  mediaCaptureSuccess(files) {
+  async mediaCaptureSuccess(files) {
     // only allow one recording
     const recording = files[0];
-    const fileEntry = {
-      type: FILE_ENTRY.TYPE,
-      title: recording.name,
-      description: null,
-      tags: [],
-      fileUrl: recording.fullPath,
-      guid: guidGenerator(),
-      fileName: recording.name,
-      mimeType: recording.type || "audio/mp4",
-      createdOn: Date.now()
-    };
 
-    StateStore.dispatch({ type: FILE_ENTRY.ADD_ENTRY, fileEntry });
+    // create temp file like with images
+    recording.guid = guidGenerator();
+
+    let tempFileUrl = await this.createTempFile(recording);
+
+    // put file into store
+    StateStore.dispatch({
+      type: FILE_ENTRY.ADD_ENTRY,
+      fileEntry: {
+        type: FILE_ENTRY.TYPE,
+        title: recording.name,
+        description: null,
+        tags: [],
+        fileUrl: tempFileUrl,
+        guid: recording.guid,
+        fileName: recording.name,
+        mimeType: recording.type || "audio/mp4",
+        createdOn: Date.now()
+      }
+    });
+    
     Router.navigate(PAGE_URL.PENDING);
   }
 }
