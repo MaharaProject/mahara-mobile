@@ -7,7 +7,7 @@
         "postinstall": "npm run init-cordova",
         "build-browser": "gulp && ./node_modules/.bin/cordova build browser",
         "launch-browser": "chromium-browser --disable-web-security --user-data-dir=/tmp/cordova/ --app=http://localhost:8000/browser/www/index.html &",
-        "build-ios": "./node_modules/.bin/gulp && ./node_modules/.bin/cordova build ios --release --buildConfig ./cordova.json",
+        "build-ios": "./node_modules/.bin/gulp && ./node_modules/.bin/cordova build ios --release",
         "android": "gulp && cordova run android",
         "prestart": "gulp && cordova build browser && npm run launch-browser",
         "start": "cordova serve 8000"
