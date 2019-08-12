@@ -18,7 +18,10 @@
 
   function ready(){
     window.mahara.addResources(deps.json, addScripts, onError);
-
+    var Sentry = cordova.require("sentry-cordova.Sentry");
+    Sentry.init({ dsn: 'https://abfd5ab9b2134d30a5e9506c2a8d1de4@sentry.catalyst.net.nz/195' });
+    Raven.config('https://abfd5ab9b2134d30a5e9506c2a8d1de4@sentry.catalyst.net.nz/195').install();
+    
     function addScripts(jsons){
       window.mahara.i18n.strings = jsons[deps.json[0]];
       window.mahara.addResources(deps.scripts);
