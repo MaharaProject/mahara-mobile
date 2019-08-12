@@ -89,5 +89,6 @@ default_journal=Výchozí deník
 default_language=Výchozí jazyk
 default_folder=Výchozí složka
 default_settings=Výchozí nastavení
-record_audio=Nahrát zvuk
+record_audio=Záznam zvuku
+record_audio_unavailable=Záznam zvuku není k dispozici
 back_to_profile=Zpět na profil
