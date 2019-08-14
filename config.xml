@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.mahara.mobile.app" ios-CFBundleIdentifier="mahara.mobile" version="1.4.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="org.mahara.mobile.app" ios-CFBundleIdentifier="mahara.mobile" version="1.4.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Mahara Mobile</name>
     <description>
       Mobile app for Mahara, the open source ePortfolio platform.
@@ -39,22 +39,43 @@
     <icon density="xhdpi" platform="android" src="res/icon/android/mipmap-xhdpi/ic_launcher.png" />
     <icon density="xxhdpi" platform="android" src="res/icon/android/mipmap-xxhdpi/ic_launcher.png" />
     <icon density="xxxhdpi" platform="android" src="res/icon/android/mipmap-xxxhdpi/ic_launcher.png" />
-    <icon height="20" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-20x20@1x.png" width="20" />
-    <icon height="29" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-29x29@1x.png" width="29" />
-    <icon height="40" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-40x40@1x.png" width="40" />
-    <icon height="57" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-57x57@1x.png" width="57" />
-    <icon height="58" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-29x29@2x.png" width="58" />
-    <icon height="60" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-60x60@1x.png" width="60" />
-    <icon height="76" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-76x76@1x.png" width="76" />
-    <icon height="80" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-40x40@2x.png" width="80" />
-    <icon height="87" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-29x29@3x.png" width="87" />
-    <icon height="120" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-60x60@2x.png" width="120" />
-    <icon height="152" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-76x76@2x.png" width="152" />
-    <icon height="167" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" width="167" />
-    <icon height="180" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-60x60@3x.png" width="180" />
-    <icon height="228" platform="ios" src="res/icon/ios/AppIcon.appiconset/Icon-App-76x76@3x.png" width="228" />
+    <platform name="ios">
+        <icon height="57" src="res/icon/ios/AppIcon.appiconset/Icon-App-57x57@1x.png" width="57" />
+        <icon height="114" src="res/icon/ios/AppIcon.appiconset/Icon-App-57x57@2x.png" width="114" />
+        <icon height="72" src="res/icon/ios/AppIcon.appiconset/Icon-72.png" width="72" />
+        <icon height="144" src="res/icon/ios/AppIcon.appiconset/Icon-App-72x72@2x.png" width="144" />
+        <icon height="167" src="res/icon/ios/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" width="167" />
+        <icon height="29" src="res/icon/ios/AppIcon.appiconset/Icon-Small.png" width="29" />
+        <icon height="58" src="res/icon/ios/AppIcon.appiconset/Icon-Small@2x.png" width="58" />
+        <icon height="87" src="res/icon/ios/AppIcon.appiconset/Icon-Small@3x.png" width="87" />
+        <icon height="50" src="res/icon/ios/AppIcon.appiconset/Icon-Small-50.png" width="50" />
+        <icon height="100" src="res/icon/ios/AppIcon.appiconset/Icon-Small-50@2x.png" width="100" />
+        <icon height="167" src="res/icon/ios/AppIcon.appiconset/Icon-App-83.5@2x.png" width="167" />
+        <icon height="20" src="res/icon/ios/AppIcon.appiconset/Icon-App-20x20@1x.png" width="20" />
+        <icon height="29" src="res/icon/ios/AppIcon.appiconset/Icon-App-29x29@1x.png" width="29" />
+        <icon height="80" src="res/icon/ios/AppIcon.appiconset/Icon-App-40x40@2x.png" width="80" />
+        <icon height="40" src="res/icon/ios/AppIcon.appiconset/Icon-App-40x40@1x.png" width="40" />
+        <icon height="57" src="res/icon/ios/AppIcon.appiconset/Icon-App-57x57@1x.png" width="57" />
+        <icon height="58" src="res/icon/ios/AppIcon.appiconset/Icon-App-29x29@2x.png" width="58" />
+        <icon height="60" src="res/icon/ios/AppIcon.appiconset/Icon-App-60x60@1x.png" width="60" />
+        <icon height="76" src="res/icon/ios/AppIcon.appiconset/Icon-App-76x76@1x.png" width="76" />
+        <icon height="80" src="res/icon/ios/AppIcon.appiconset/Icon-App-40x40@2x.png" width="80" />
+        <icon height="87" src="res/icon/ios/AppIcon.appiconset/Icon-App-29x29@3x.png" width="87" />
+        <icon height="120" src="res/icon/ios/AppIcon.appiconset/Icon-App-60x60@2x.png" width="120" />
+        <icon height="152" src="res/icon/ios/AppIcon.appiconset/Icon-App-76x76@2x.png" width="152" />
+        <icon height="167" src="res/icon/ios/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" width="167" />
+        <icon height="180" src="res/icon/ios/AppIcon.appiconset/Icon-App-60x60@3x.png" width="180" />
+        <icon height="228" src="res/icon/ios/AppIcon.appiconset/Icon-App-76x76@3x.png" width="228" />
+        <icon height="1024" src="res/icon/ios/AppIcon.appiconset/iTunesArtwork@2x.png" width="1024" />
+    </platform>
     <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryUsageDescription">
-        <string>Used to upload photos to a Mahara site</string>
+        <string>Mahara Mobile needs access to the photo library to upload photos to Mahara</string>
+    </edit-config>
+    <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
+        <string>Mahara Mobile needs camera access to take photos to upload to Mahara</string>
+    </edit-config>
+    <edit-config file="*-Info.plist" mode="merge" target="NSMicrophoneUsageDescription">
+        <string>Mahara Mobile needs microphone access to record audio to upload to Mahara</string>
     </edit-config>
     <plugin name="cordova-plugin-camera" spec="~4.0.3" />
     <plugin name="cordova-plugin-device" spec="~2.0.2" />
@@ -65,17 +86,5 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <engine name="browser" spec="^6.0.0" />
-    <engine name="ios" spec="^5.0.0" />
     <engine name="android" spec="^8.0.0" />
-    <plugin name="cordova-plugin-media-capture" spec="^3.0.3">
-      <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
-        <string>Mahara Mobile needs camera access to take photos</string>
-      </edit-config>
-      <edit-config target="NSMicrophoneUsageDescription" file="*-Info.plist" mode="merge">
-        <string>Mahara Mobile needs microphone access to record audio</string>
-      </edit-config>
-      <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
-        <string>Mahara Mobile needs access to photo library to upload photos to Mahara</string>
-      </edit-config>
-    </plugin>
 </widget>
