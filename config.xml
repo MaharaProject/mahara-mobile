@@ -69,13 +69,13 @@
         <icon height="1024" src="res/icon/ios/AppIcon.appiconset/iTunesArtwork@2x.png" width="1024" />
     </platform>
     <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryUsageDescription">
-        <string>Mahara Mobile needs access to the photo library to upload photos to Mahara</string>
+        <string>This allows you to upload files to your Mahara site.</string>
     </edit-config>
     <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
-        <string>Mahara Mobile needs camera access to take photos to upload to Mahara</string>
+        <string>This allows you to take and upload photos to your Mahara site. They are then deleted from your device.</string>
     </edit-config>
     <edit-config file="*-Info.plist" mode="merge" target="NSMicrophoneUsageDescription">
-        <string>Mahara Mobile needs microphone access to record audio to upload to Mahara</string>
+        <string>This allows you to upload audio to your Mahara site. It is then deleted from your device.</string>
     </edit-config>
     <plugin name="cordova-plugin-camera" spec="~4.0.3" />
     <plugin name="cordova-plugin-device" spec="~2.0.2" />
