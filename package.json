@@ -7,7 +7,7 @@
         "postinstall": "npm run init-cordova",
         "build-browser": "gulp && ./node_modules/.bin/cordova build browser",
         "launch-browser": "chromium-browser --disable-web-security --user-data-dir=/tmp/cordova/ --app=http://localhost:8000/browser/www/index.html &",
-        "build-ios": "./node_modules/.bin/gulp && ./node_modules/.bin/cordova build ios --release --buildConfig ./cordova.json",
+        "build-ios": "./node_modules/.bin/gulp && ./node_modules/.bin/cordova build ios --release",
         "android": "gulp && cordova run android",
         "prestart": "gulp && cordova build browser && npm run launch-browser",
         "start": "cordova serve 8000"
@@ -23,6 +23,7 @@
     },
     "homepage": "https://github.com/holloway/mahara-mobile",
     "dependencies": {
+        "@sentry/browser": "^5.6.1",
         "android-versions": "^1.3.0",
         "autoprefixer": "^9.5.0",
         "browserify": "^16.2.3",
@@ -36,7 +37,7 @@
         "cordova-plugin-globalization": "^1.11.0",
         "cordova-plugin-inappbrowser": "3.0.0",
         "cordova-plugin-media": "~5.0.2",
-        "cordova-plugin-media-capture": "^3.0.2",
+        "cordova-plugin-media-capture": "^3.0.3",
         "cordova-plugin-statusbar": "^2.4.2",
         "cordova-plugin-whitelist": "^1.3.3",
         "cordova-serve": "~3.0.0",
@@ -65,6 +66,7 @@
         "react-select": "^1.0.0-rc.10",
         "react-select2": "https://github.com/agwells/react-select2/releases/download/v4.0.2-beta3/react-select2-4.0.1.tgz",
         "redux": "~3.6.0",
+        "sentry-cordova": "^0.12.3",
         "vinyl-buffer": "~1.0.0",
         "vinyl-source-stream": "^2.0.0"
     },
@@ -100,7 +102,8 @@
             "cordova-plugin-media": {},
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
-            "cordova-plugin-media-capture": {}
+            "cordova-plugin-media-capture": {},
+            "sentry-cordova": {}
         }
     }
 }
