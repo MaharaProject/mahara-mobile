@@ -4,9 +4,9 @@ A Mahara app for offline use.
 
 The technology is JavaScript ES6, React, Redux, and Phonegap.
 
-**This codebase is not maintained any more as it was superceded by [Mahara Mobile built on React Native](https://github.com/MaharaProject/mahara-mobile-react-native).
+**This codebase is not maintained any more as it was superceded by [Mahara Mobile built on React Native](https://github.com/MaharaProject/mahara-mobile-react-native).**
 
-The codebase is provided solely for historical purposes.**
+**The codebase is provided solely for historical purposes.**
 
 ## Requirements
 
