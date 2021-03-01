@@ -4,6 +4,10 @@ A Mahara app for offline use.
 
 The technology is JavaScript ES6, React, Redux, and Phonegap.
 
+**This codebase is not maintained any more as it was superceded by [Mahara Mobile built on React Native](https://github.com/MaharaProject/mahara-mobile-react-native).
+
+The codebase is provided solely for historical purposes.**
+
 ## Requirements
 
 * Mahara 16.10+
@@ -83,3 +87,17 @@ You can use the cordova command-line tool. To produce an APK that can run on a n
 * More informative error messages
 * Better control flow for situations where the user's token is no longer valid.
 * Testing on iOS
+
+## Copyright
+
+Copyright (C) 2015-2019 Catalyst IT and others; see:
+https://wiki.mahara.org/wiki/Contributors
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, version 3 or later of the License.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see https://www.gnu.org/licenses/.
